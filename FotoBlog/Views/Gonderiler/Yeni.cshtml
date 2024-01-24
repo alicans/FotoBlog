@@ -1,0 +1,25 @@
+﻿@model YeniGonderiViewModel
+
+@{
+    ViewData["Title"] = "Yeni Gönderi Ekle";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" enctype="multipart/form-data" asp-action="Yeni">
+    <div class="mb-3">
+        <label class="form-label" asp-for="Baslik">Başlık:</label>
+        <input type="text" asp-for="Baslik" class="form-control"/>
+        <span asp-validation-for="Baslik" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Resim">Resim Yükle:</label>
+        <input type="file" asp-for="Resim" class="form-control" />
+        <span asp-validation-for="Resim" class="text-danger mt-1"></span>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Gönderi Ekle</button>
+        <button asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">İptal</button>
+
+    </div>
+</form>
