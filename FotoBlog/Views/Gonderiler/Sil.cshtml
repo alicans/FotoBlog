@@ -1,0 +1,23 @@
+﻿@model Gonderi
+@{
+    ViewData["Title"] = "Gönderi Silme";
+}
+<h1>Gönderi Silme</h1>
+<h5>Aşağıda bilgileri olan Gönderiyi silmek istediğinize emin misiniz?</h5>
+
+<form method="post" asp-controller="Gonderiler" asp-action="Sil">
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="Baslik">Başlık:</label>
+        <input type="text" readonly asp-for="Baslik" class="form-control" />
+        <span asp-validation-for="Baslik" class="text-danger"></span>
+    </div>
+
+    <input hidden asp-for="ResimYolu" class="form-control" />
+
+    <div class="mb-3">
+        <button class="btn btn-danger">Gönderi Sil</button>
+        <button asp-controller="Home" asp-action="Index" class="btn btn-outline-danger">İptal</button>
+
+    </div>
+</form>

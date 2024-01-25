@@ -1,0 +1,33 @@
+﻿@model YeniGonderiViewModel
+@{
+    ViewData["Title"] = "Gönderi Güncelleme";
+}
+
+@if (TempData["Durum"] != null)
+{
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">
+            @TempData["Durum"]
+        </li>
+    </ul>
+}
+
+
+<h1>Gönderi Güncelleme</h1>
+<form method="post" enctype="multipart/form-data" asp-action="Guncelle">
+    <div class="mb-3">
+        <label class="form-label" asp-for="Baslik">Başlık:</label>
+        <input type="text" asp-for="Baslik" class="form-control" />
+        <span asp-validation-for="Baslik" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Resim">Resim Yükle:</label>
+        <input type="file" asp-for="Resim" class="form-control" />
+        <span asp-validation-for="Resim" class="text-danger mt-1"></span>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Gönderi Güncelle</button>
+        <button asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">İptal</button>
+
+    </div>
+</form>

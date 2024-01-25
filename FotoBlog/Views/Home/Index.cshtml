@@ -11,7 +11,7 @@
         </div>
     }
 
-    <div class="d-flex mb-3">
+    <div class="d-flex mb-3 justify-content-end">
         <a asp-action="Yeni" asp-controller="Gonderiler" class="btn btn-outline-primary ms-auto">+ Yeni Gönderi</a>
     </div>
 
@@ -20,8 +20,18 @@
     @foreach (Gonderi a in Model)
     {
         <div class="mb-4">
-            <h5>@a.Baslik</h5>
+            <div class="d-flex justify-content-between">
+                <h5>@a.Baslik</h5>
+                <div>
+                    <a class="btn btn-outline-primary btn-sm mb-1" asp-route-id="@a.Id" asp-controller="Gonderiler" asp-action="Guncelle">✎</a>
+                    <a class="btn btn-outline-danger btn-sm mb-1" asp-route-id="@a.Id" asp-controller="Gonderiler" asp-action="Sil">❌</a>
+                </div>
+            </div>
+
             <img src="~/img/upload/@a.ResimYolu" class="w-100" />
         </div>
     }
+
+
 </div>
+
